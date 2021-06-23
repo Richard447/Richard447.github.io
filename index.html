@@ -1,203 +1,325 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Richardo</title><meta name="author" content="Richardo.M"><meta name="copyright" content="Richardo.M"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="心有猛虎，细嗅蔷薇">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Richardo">
+<meta property="og:url" content="https://richard447.github.io/index.html">
+<meta property="og:site_name" content="Richardo">
+<meta property="og:description" content="心有猛虎，细嗅蔷薇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://richard447.github.io/img/self_icon.png">
+<meta property="article:author" content="Richardo.M">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://richard447.github.io/img/self_icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://richard447.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Richardo',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-06-24 00:48:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/self_icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/home.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Richardo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Richardo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/" title="CVE-2020-1380漏洞利用及EXP构造">     <img class="post_bg" src="https://overwatch.nosdn.127.net/2/media/screenshots/ayutthaya-screenshot-001.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CVE-2020-1380漏洞利用及EXP构造"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/" title="CVE-2020-1380漏洞利用及EXP构造">CVE-2020-1380漏洞利用及EXP构造</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-26T16:00:00.000Z" title="发表于 2020-12-27 00:00:00">2020-12-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/">漏洞分析</a></span></div><div class="content">CVE-2020-1380漏洞分析及利用前言​        CVE-2020-1380是2020年8月修复的一个IE漏洞，类型是UAF，该漏洞是由js引擎JIT(Just in time)优化和即时编译代码中缺少必要检测引起。该漏洞最早于2020年5月被卡巴斯基在一次对韩国公司的IE恶意脚本攻击中发现，在其进一步分析发现这次攻击中利用了两个0day漏洞，IE的远程代码执行漏洞(CVE-2020-1380)和Windows特权提升漏洞(CVE-2020-0986)。
+分析环境
+jscript9.dll——File Version: 11.0.9600.17840
+Win7————–X86
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/06/22/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-06-22T07:05:25.364Z" itemprop="datePublished">2021-06-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/06/22/hello-world/">Hello World</a>
-    </h1>
-  
+漏洞分析Poc代码1234567891011121314151617181920212223242526272829303132333435363738394041function func(T, A, F, O2) &#123;    arguments.push = Array.prototype.push;    T = 1;    arguments.length = 0;    argum ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/" title="IEJscript9中的一些数据对象研究">     <img class="post_bg" src="https://overwatch.nosdn.127.net/2/media/screenshots/rialto-screenshot-004.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IEJscript9中的一些数据对象研究"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/" title="IEJscript9中的一些数据对象研究">IEJscript9中的一些数据对象研究</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-24T16:00:00.000Z" title="发表于 2020-12-25 00:00:00">2020-12-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/">漏洞分析</a></span></div><div class="content">JS中一些对象结构的研究Array对象代码层
+Array对象是一个很宽泛的对象，可以在单个变量中存储多个值，并且Array对象的元素赋值不受类型限制，如下
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+12345var an = new Array(10);an[0] = 1;an[1] = &quot;a&quot;;an[2] = &quot;2.2&quot;console.log(an);   //1,&quot;a&quot;,2.2
+系统底层
+由于JS中没有十分明显的处理函数，只能通过调试来查看，编写如下代码
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/06/22/hello-world/" data-id="ckq7pkgpo00006cw90gfn35be" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+12345678910111213&lt;html&gt;&lt;script&gt;alert(&quot;Start!&quot;);for (var i = 0; i&lt;0x1000; i++)&#123;	a[i] = new Array(0x1000/4);	for (var j = 0; j &lt; a[i].length;j++)	&#123;		a[i][j] = 0x666;	&#125;&#125;alert(&quot;Done!&quot;)&lt;/script&gt;&lt; ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" title="Emotet病毒分析">     <img class="post_bg" src="https://overwatch.nosdn.127.net/a/images/2021/1/13/70dadcf36262b15cb803223ed56ad252.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Emotet病毒分析"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" title="Emotet病毒分析">Emotet病毒分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-28T16:00:00.000Z" title="发表于 2020-10-29 00:00:00">2020-10-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90/">恶意软件分析</a></span></div><div class="content">Emotet病毒分析报告样本基础信息
 
 
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/06/22/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+Name
+#679.doc
 
 
 
 
-<script src="/js/script.js"></script>
+Size
+199168 bytes
+
+
+MD5
+ED4720EEF9F693EB0E4FACA5251F297B
+
+
+SHA1
+961444B030CEA0426CC13EDCECBA6E0BAD67AF54
+
+
+
+样本执行流程
+详细分析
+拿到该样本，先使用oledump.py扫描查看其是否有恶意的宏代码，并将扫描到的恶意的宏代码直接dump到文件中查看并分析
+
+
+
+
+初步分析发现，宏代码中有大量的混淆，则通过动态调试来分析其宏的具体行为，使用Process Monitor记录其行为，通过关键字符串CreateObject定位到其创建对象的代码，调试发现其通过创建winmgmts:win32_Process对象，调用Win32_Process的Create方法创建powershell进程来执行恶意代码
 
 
 
 
 
-  </div>
-</body>
-</html>
+提取到的powershell执行的命令，其执行的代码使用Base64编码过，通过解码整理，内容如下:
+
+123456789101112131415161718192021222324252627282 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/20/%E4%B8%80%E4%B8%AA%E5%A4%9A%E5%B1%82%E5%8A%A0%E5%AF%86%E6%B7%B7%E6%B7%86%E7%9A%84powershell%E6%9C%A8%E9%A9%AC&amp;%E5%8B%92%E7%B4%A2%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/" title="Powershell勒索病毒">     <img class="post_bg" src="https://overwatch.nosdn.127.net/2/media/screenshots/brigitte-screenshot-01_n2d31.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Powershell勒索病毒"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/20/%E4%B8%80%E4%B8%AA%E5%A4%9A%E5%B1%82%E5%8A%A0%E5%AF%86%E6%B7%B7%E6%B7%86%E7%9A%84powershell%E6%9C%A8%E9%A9%AC&amp;%E5%8B%92%E7%B4%A2%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/" title="Powershell勒索病毒">Powershell勒索病毒</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-19T16:00:00.000Z" title="发表于 2020-07-20 00:00:00">2020-07-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90/">恶意软件分析</a></span></div><div class="content">powershell勒索病毒[toc]
+前言​        偶然在twitter上发现这个使用powershell脚本完成勒索的软件，样本里面采用了多层混淆、压缩、加密，并且核心的驻留程序和文件加密程序全部都是powershell脚本，在勒索病毒中实属少见。
+样本基础信息
+
+
+Name
+N-388-30.06.2020.docx
+
+
+
+
+Size
+62387 bytes
+
+
+MD5
+7B5F028144AA35AFDF9F4835FA5432B8
+
+
+SHA1
+8BF59BAF6A003C279E95540BFB92149F6F0BA668
+
+
+
+详细分析
+从AnyRun上拿到样本，解压，样本的本体是一个lnk快捷方式文件，并且从属性中可得到其执行的目标命令：
+
+
+1%comspec% /v /c set m=m^s^h^ta &amp;&amp; set a=N-388-^30.06.^2020.^docx.l^nk &amp;&amp; if exist &quot;!cd!\!a!&quot; (!m! &quot;!cd!\!a!&quot;) else (!m! &quot ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/03/20/DroidBox%E9%85%8D%E7%BD%AE/" title="DroidBox配置">     <img class="post_bg" src="https://overwatch.nosdn.127.net/2/media/screenshots/hanamura-screenshot-010.16TUs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DroidBox配置"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/20/DroidBox%E9%85%8D%E7%BD%AE/" title="DroidBox配置">DroidBox配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-19T16:00:00.000Z" title="发表于 2020-03-20 00:00:00">2020-03-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a></span></div><div class="content">DroidBox配置笔记安装准备
+ubuntu16，下载链接：http://mirrors.aliyun.com/ubuntu-releases/16.04/
+
+AndroidSDK，下载链接：http://www.androiddevtools.cn/#sdk-tools
+
+JDK，下载链接：https://www.oracle.com/java/technologies/javase-downloads.html
+DroidBox，下载链接：https://github.com/pjlantz/droidbox/releases
+python2环境，因为DroidBox只支持python2的环境，所以这里选择ubuntu16省去python3的配置，若使用ubuntu18需要自行安装python2的环境。
+
+安装流程
+将AndroidSDK、JDK、DroidBox解压。
+
+
+
+然后开始配置JAVA和SDK环境变量，使用命令gedit ~/.bashrc，文件末尾添加以下路径，然后使用命令：source ~/.bashrc ，测试命令：java 、javac
+
+
+
+
+下载sdk镜像 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/03/07/010Editor%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/" title="010Editor破解(Win10_X64平台)">     <img class="post_bg" src="https://overwatch.nosdn.127.net/2/media/screenshots/busan-screenshot-002.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="010Editor破解(Win10_X64平台)"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/07/010Editor%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/" title="010Editor破解(Win10_X64平台)">010Editor破解(Win10_X64平台)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-07T07:53:26.000Z" title="发表于 2020-03-07 15:53:26">2020-03-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%80%86%E5%90%91/">逆向</a></span></div><div class="content">在64位win10上破解010editor准备：
+x64dbg
+
+010editor最新版
+
+
+软件安装
+从github上下载x64dbg(https://github.com/x64dbg/x64dbg/releases)，由于墙的原因下载速度会比较慢。
+
+
+
+从010editor官网(https://www.sweetscape.com/010editor/)上下载010editor最新版，安装。- 
+
+破解步骤
+从010editor安装目录，将010Editor.exe拖入x64dbg
+
+
+
+直接F9运行，010editor会弹出框，让输入账户和密码，输入错误则会弹出下面的框
+
+
+
+这里有文本信息提示，所以从内存中搜索字符串来定位校验函数，找到字符串在函数中的引用位置，并在这条指令下断点
+
+
+
+从当前指令向上寻找，可以发现一些其他的字符直到程序开头，找到校验成果后的弹框字符串，分别在这几处下断点
+
+
+
+
+开始动态调试寻找关键跳转，让程序运行起来，弹出输入账户和密码的框后点击Check Licence，程序将会断在刚才校验函数起始处。然后开始单步F7调试，遇到call调用函数时步过 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/03/02/V2ray%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="V2ray完全使用教程(自用)">     <img class="post_bg" src="https://overwatch.nosdn.127.net/2/media/screenshots/Genji03.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="V2ray完全使用教程(自用)"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/02/V2ray%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="V2ray完全使用教程(自用)">V2ray完全使用教程(自用)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-01T16:00:00.000Z" title="发表于 2020-03-02 00:00:00">2020-03-02</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%A2%AF%E5%AD%90/">梯子</a></span></div><div class="content">V2ray使用指南申明：本教程仅作为学习用途，不可用于违法犯罪之途。搭建必需的东西
+一台国外的VPS
+
+ssh连接工具
+
+v2ray客户端
+
+详细步骤一、购买一台国外的VPS
+目前国外较好的vps厂商有：vultr、搬瓦工，但是都比较贵，本次搭建选择一个较便宜的俄罗斯厂商：https://justhost.ru/services/vps/?tariff=2#changeconfig，考虑到翻译上的问题，所以购买步骤如下：
+
+打开url:https://justhost.ru/auth/register?returl=%2Fbilling%2Frenew，进入页面如下，输入自己的电子邮件账户，QQ邮箱可以注册，然后你的邮箱会收到一封激活账户的邮件，收到的邮件可以使用翻译软件翻译内容完成注册。
+
+
+
+购买VPS，这里选择一个1核512内存5G存储的服务器，这个配置基本满足使用，价格也比较便宜。
+
+
+
+选择服务器后需要修改下服务器的初始配置，购买时间、初始系统。机房非必须选，也可自动分配，没有测试过几个机房延迟差别，但是估计也差不多。
+
+
+ 
+
+
+选择好了之后就在右侧框体中选择购买：
+
+
+
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/02/05/oledump-py%E5%AF%BC%E5%87%BA%E6%96%87%E6%A1%A3%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%A3%E7%A0%81/" title="oledump.py导出文档中的宏代码">     <img class="post_bg" src="https://overwatch.nosdn.127.net/2/media/screenshots/temple-of-anubis-screenshot-005.2dA8f.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="oledump.py导出文档中的宏代码"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/02/05/oledump-py%E5%AF%BC%E5%87%BA%E6%96%87%E6%A1%A3%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%A3%E7%A0%81/" title="oledump.py导出文档中的宏代码">oledump.py导出文档中的宏代码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-02-04T16:00:00.000Z" title="发表于 2020-02-05 00:00:00">2020-02-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a></span></div><div class="content">oledump.py导出文档中的宏代码​        在分析恶意的文档类病毒时，时常需要启用宏才能查看到宏代码，但是有些文档启用宏之后宏代码运行，其原本的宏代码可能会被破坏，这就需要一些其他的工具来提取其中的宏代码了。
+oledump.py
+先使用命令：python oledump.py  xxx.doc来查看doc中的数据流：
+
+
+
+这里可以查看到该文档的数据流，标有M字样的即表明这一段数据里面有宏代码，可以使用命令：
+
+python oledump.py -s 15 -v xxx.doc &gt;&gt;bbb.txt来查看宏代码，并把宏代码保存到aaa.txt。(-s 参数为查看，-v参数为解压缩VBA宏)
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/01/27/%E5%8F%8D%E8%B0%83%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="反调试学习笔记">     <img class="post_bg" src="https://overwatch.nosdn.127.net/2/media/screenshots/hanamura-screenshot-004.0DZyD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="反调试学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/01/27/%E5%8F%8D%E8%B0%83%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="反调试学习笔记">反调试学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-01-26T16:00:00.000Z" title="发表于 2020-01-27 00:00:00">2020-01-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a></span></div><div class="content">反调试笔记静态反调试通过PEB中的数据检测0x01 BeingDebugged(+0x2)在PEB结构中，成员BeingDebugged是一个标志(Flag)，用来表示进程是否处于被调试状态。
+
+在32位程序中，可以借助FS段寄存器所指的TEB结构体来获得PEB结构体地址。
+
+1mov eax,dword ptr fs:[0x30];Address of PEB
+
+PEB结构体
+
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556typedef struct _PEB &#123; // Size: 0x1D8/*000*/ UCHAR InheritedAddressSpace;/*001*/ UCHAR ReadImageFileExecOptions;/*002*/ UCHAR BeingDebugged; //---&gt;调试标志/*003*/ UCHAR SpareBool; // Allocation size/*00 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/01/07/%E9%9D%9EC%E3%80%81C-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8F%8D%E7%BC%96%E8%AF%91/" title="非C\C++语言的编译链接程序的反编译">     <img class="post_bg" src="https://overwatch.nosdn.127.net/2/media/screenshots/Hollywood03.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="非C\C++语言的编译链接程序的反编译"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/01/07/%E9%9D%9EC%E3%80%81C-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8F%8D%E7%BC%96%E8%AF%91/" title="非C\C++语言的编译链接程序的反编译">非C\C++语言的编译链接程序的反编译</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-01-06T16:00:00.000Z" title="发表于 2020-01-07 00:00:00">2020-01-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%80%86%E5%90%91/">逆向</a></span></div><div class="content">对非C\C++程序的反编译1、AutoIt​        AutoIt语言简介： 是一个使用类似BASIC脚本语言的免费软件,它设计用于Windows GUI(图形用户界面)中进行自动化操作。它利用模拟键盘按键，鼠标移动和窗口/控件的组合来实现自动化任务。而这是其它语言不可能做到或无可靠方法实现的(例如VBScript和SendKeys)。
+​        AutoIt在恶意软件方面的应用也十分广泛，由于该语言的特殊性，恶意软件作者可以利用它来创建和混淆他的恶意软件。AutoIt具有两个编译选项：编译脚本或独立可执行文件。
+编译脚本​        AutoIt可以将程序编译为一个脚本文件，但是如果要运行该脚本文件需要合法的AutoIt解释器，利用AutoIt解释器来解释脚本并执行。例：
+
+在这个图片中有一个被改名的AutoIt解释器，和一个已经被编译好的AutoIt脚本文件，其对抗主动防御的能力较好，因为AutoIt解释器的证书等合法性并不会被杀软所清除，编译好的脚本文件，多数杀软对这类的脚本文件并不感冒。
+启动该脚本文件常用命令：cmd.exe  /c  start Windd ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/self_icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Richardo.M</div><div class="author-info__description">心有猛虎，细嗅蔷薇</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/richard447"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">We1C0me_t0_Richard0's W0rld</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/" title="CVE-2020-1380漏洞利用及EXP构造"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/ayutthaya-screenshot-001.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CVE-2020-1380漏洞利用及EXP构造"/></a><div class="content"><a class="title" href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/" title="CVE-2020-1380漏洞利用及EXP构造">CVE-2020-1380漏洞利用及EXP构造</a><time datetime="2020-12-26T16:00:00.000Z" title="发表于 2020-12-27 00:00:00">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/" title="IEJscript9中的一些数据对象研究"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/rialto-screenshot-004.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IEJscript9中的一些数据对象研究"/></a><div class="content"><a class="title" href="/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/" title="IEJscript9中的一些数据对象研究">IEJscript9中的一些数据对象研究</a><time datetime="2020-12-24T16:00:00.000Z" title="发表于 2020-12-25 00:00:00">2020-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" title="Emotet病毒分析"><img src="https://overwatch.nosdn.127.net/a/images/2021/1/13/70dadcf36262b15cb803223ed56ad252.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Emotet病毒分析"/></a><div class="content"><a class="title" href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" title="Emotet病毒分析">Emotet病毒分析</a><time datetime="2020-10-28T16:00:00.000Z" title="发表于 2020-10-29 00:00:00">2020-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/07/20/%E4%B8%80%E4%B8%AA%E5%A4%9A%E5%B1%82%E5%8A%A0%E5%AF%86%E6%B7%B7%E6%B7%86%E7%9A%84powershell%E6%9C%A8%E9%A9%AC&amp;%E5%8B%92%E7%B4%A2%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/" title="Powershell勒索病毒"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/brigitte-screenshot-01_n2d31.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Powershell勒索病毒"/></a><div class="content"><a class="title" href="/2020/07/20/%E4%B8%80%E4%B8%AA%E5%A4%9A%E5%B1%82%E5%8A%A0%E5%AF%86%E6%B7%B7%E6%B7%86%E7%9A%84powershell%E6%9C%A8%E9%A9%AC&amp;%E5%8B%92%E7%B4%A2%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/" title="Powershell勒索病毒">Powershell勒索病毒</a><time datetime="2020-07-19T16:00:00.000Z" title="发表于 2020-07-20 00:00:00">2020-07-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/03/20/DroidBox%E9%85%8D%E7%BD%AE/" title="DroidBox配置"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/hanamura-screenshot-010.16TUs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DroidBox配置"/></a><div class="content"><a class="title" href="/2020/03/20/DroidBox%E9%85%8D%E7%BD%AE/" title="DroidBox配置">DroidBox配置</a><time datetime="2020-03-19T16:00:00.000Z" title="发表于 2020-03-20 00:00:00">2020-03-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AE%89%E5%8D%93/"><span class="card-category-list-name">安卓</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90/"><span class="card-category-list-name">恶意软件分析</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%A2%AF%E5%AD%90/"><span class="card-category-list-name">梯子</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/"><span class="card-category-list-name">漏洞分析</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%80%86%E5%90%91/"><span class="card-category-list-name">逆向</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9A%8F%E8%AE%B0/"><span class="card-category-list-name">随记</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/CVE-2020-1380/" style="font-size: 1.1em; color: #999">CVE-2020-1380</a> <a href="/tags/Emotet%E7%97%85%E6%AF%92/" style="font-size: 1.1em; color: #999">Emotet病毒</a> <a href="/tags/jscript9/" style="font-size: 1.1em; color: #999">jscript9</a> <a href="/tags/%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92/" style="font-size: 1.1em; color: #999">勒索病毒</a> <a href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/" style="font-size: 1.1em; color: #999">反编译</a> <a href="/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/" style="font-size: 1.1em; color: #999">反调试</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 1.1em; color: #999">安卓</a> <a href="/tags/%E5%AE%8F/" style="font-size: 1.1em; color: #999">宏</a> <a href="/tags/%E6%96%87%E6%A1%A3%E7%97%85%E6%AF%92/" style="font-size: 1.1em; color: #999">文档病毒</a> <a href="/tags/%E7%A0%B4%E8%A7%A3/" style="font-size: 1.1em; color: #999">破解</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 1.1em; color: #999">科学上网</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/12/"><span class="card-archive-list-date">十二月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/03/"><span class="card-archive-list-date">三月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/02/"><span class="card-archive-list-date">二月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/01/"><span class="card-archive-list-date">一月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">11</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2018-01-31T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-06-23T16:48:10.852Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Richardo.M</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

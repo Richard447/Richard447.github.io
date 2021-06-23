@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>非C\C++语言的编译链接程序的反编译 | Richardo</title><meta name="keywords" content="反编译"><meta name="author" content="Richardo.M"><meta name="copyright" content="Richardo.M"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="对非C\C++程序的反编译1、AutoIt​        AutoIt语言简介： 是一个使用类似BASIC脚本语言的免费软件,它设计用于Windows GUI(图形用户界面)中进行自动化操作。它利用模拟键盘按键，鼠标移动和窗口&#x2F;控件的组合来实现自动化任务。而这是其它语言不可能做到或无可靠方法实现的(例如VBScript和SendKeys)。 ​        AutoIt在恶意软件方面的应用也十">
+<meta property="og:type" content="article">
+<meta property="og:title" content="非C\C++语言的编译链接程序的反编译">
+<meta property="og:url" content="https://richard447.github.io/2020/01/07/%E9%9D%9EC%E3%80%81C-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8F%8D%E7%BC%96%E8%AF%91/index.html">
+<meta property="og:site_name" content="Richardo">
+<meta property="og:description" content="对非C\C++程序的反编译1、AutoIt​        AutoIt语言简介： 是一个使用类似BASIC脚本语言的免费软件,它设计用于Windows GUI(图形用户界面)中进行自动化操作。它利用模拟键盘按键，鼠标移动和窗口&#x2F;控件的组合来实现自动化任务。而这是其它语言不可能做到或无可靠方法实现的(例如VBScript和SendKeys)。 ​        AutoIt在恶意软件方面的应用也十">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://overwatch.nosdn.127.net/2/media/screenshots/Hollywood03.jpg">
+<meta property="article:published_time" content="2020-01-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-06T16:00:00.000Z">
+<meta property="article:author" content="Richardo.M">
+<meta property="article:tag" content="反编译">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://overwatch.nosdn.127.net/2/media/screenshots/Hollywood03.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://richard447.github.io/2020/01/07/%E9%9D%9EC%E3%80%81C-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8F%8D%E7%BC%96%E8%AF%91/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '非C\C++语言的编译链接程序的反编译',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-07 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/self_icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://overwatch.nosdn.127.net/2/media/screenshots/junkertown-screenshot-004.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Richardo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">非C\C++语言的编译链接程序的反编译</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-01-06T16:00:00.000Z" title="发表于 2020-01-07 00:00:00">2020-01-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-06T16:00:00.000Z" title="更新于 2021-03-07 00:00:00">2021-03-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%80%86%E5%90%91/">逆向</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="非C\C++语言的编译链接程序的反编译"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="对非C-C-程序的反编译"><a href="#对非C-C-程序的反编译" class="headerlink" title="对非C\C++程序的反编译"></a>对非C\C++程序的反编译</h1><h2 id="1、AutoIt"><a href="#1、AutoIt" class="headerlink" title="1、AutoIt"></a>1、AutoIt</h2><p>​        AutoIt语言简介： 是一个使用类似BASIC<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/脚本语言/1379708">脚本语言</a>的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/免费软件/599405">免费软件</a>,它设计用于Windows GUI(<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/图形用户界面/3352324">图形用户界面</a>)中进行自动化操作。它利用模拟键盘按键，鼠标移动和窗口/控件的组合来实现自动化任务。而这是其它语言不可能做到或无可靠方法实现的(例如<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/VBScript">VBScript</a>和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/SendKeys">SendKeys</a>)。</p>
+<p>​        AutoIt在恶意软件方面的应用也十分广泛，由于该语言的特殊性，恶意软件作者可以利用它来创建和混淆他的恶意软件。AutoIt具有两个编译选项：编译脚本或独立可执行文件。</p>
+<h3 id="编译脚本"><a href="#编译脚本" class="headerlink" title="编译脚本"></a>编译脚本</h3><p>​        AutoIt可以将程序编译为一个脚本文件，但是如果要运行该脚本文件需要合法的AutoIt解释器，利用AutoIt解释器来解释脚本并执行。例：</p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20191118102037228.png" alt="image-20191118102037228"></p>
+<p>在这个图片中有一个被改名的AutoIt解释器，和一个已经被编译好的AutoIt脚本文件，其对抗主动防御的能力较好，因为AutoIt解释器的证书等合法性并不会被杀软所清除，编译好的脚本文件，多数杀软对这类的脚本文件并不感冒。</p>
+<p>启动该脚本文件常用命令：<code>cmd.exe  /c  start WinddowsUpdater.exe  WindowsUpdater.zip &amp;  exit</code></p>
+<h3 id="独立可执行文件"><a href="#独立可执行文件" class="headerlink" title="独立可执行文件"></a>独立可执行文件</h3><p>​        使用独立的可执行文件，恶意负载将显示为单个.exe文件，该文件实际上是AutoIt解释器，其中将编译后的脚本作为资源嵌入其中。因为脚本是嵌入时的，所以无所使用文件HASH来检验可执行文件是合法的AutoIt二进制文件。但是可以通过PeStudio对文件进行分析并查找AutoIt覆盖，清单或字符串来确定正在处理的可执行文件是否是AutoIt独立可执行文件。</p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20191118104255702.png" alt="image-20191118104255702"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20191118104324839.png" alt="image-20191118104324839"></p>
+<h3 id="AutoIt反编译"><a href="#AutoIt反编译" class="headerlink" title="AutoIt反编译"></a>AutoIt反编译</h3><p>​        目前已知较好的AutoIt反编译工具是：Exe2Aut，可以对AutoIt独立可执行程序进行反编、和对AutoIt脚本反编，效果都还不错，但是AutoIt脚本往往伴随着加密和混淆，对其反编之后，还需要自行整理代码。</p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20191118111533979.png" alt="image-20191118111533979"></p>
+<p>反编译之后会生成.au3文件，这个文件中就是脚本的完整代码，可以手动对其进行分析。</p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20191118111722159.png" alt="image-20191118111722159"></p>
+<p>Exe2Aut下载链接(<a target="_blank" rel="noopener" href="https://drive.google.com/open?id=1H9s9y-3LgdEjBayUOeBv88dZzXUIoHwC">https://drive.google.com/open?id=1H9s9y-3LgdEjBayUOeBv88dZzXUIoHwC</a>)</p>
+<hr>
+<p>持续更新</p>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Richardo.M</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://richard447.github.io/2020/01/07/%E9%9D%9EC%E3%80%81C-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8F%8D%E7%BC%96%E8%AF%91/">https://richard447.github.io/2020/01/07/%E9%9D%9EC%E3%80%81C-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8F%8D%E7%BC%96%E8%AF%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://richard447.github.io" target="_blank">Richardo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/">反编译</a></div><div class="post_share"><div class="social-share" data-image="https://overwatch.nosdn.127.net/2/media/screenshots/Hollywood03.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/01/27/%E5%8F%8D%E8%B0%83%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><img class="prev-cover" src="https://overwatch.nosdn.127.net/2/media/screenshots/hanamura-screenshot-004.0DZyD.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">反调试学习笔记</div></div></a></div><div class="next-post pull-right"><a href="/2019/12/07/cve-2017-11882%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%81%B6%E6%84%8F%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/"><img class="next-cover" src="https://overwatch.nosdn.127.net/2/media/screenshots/chateau-screenshot-001.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">cve-2017-11882漏洞利用恶意样本分析</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/self_icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Richardo.M</div><div class="author-info__description">心有猛虎，细嗅蔷薇</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/richard447"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">We1C0me_t0_Richard0's W0rld</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E9%9D%9EC-C-%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="toc-number">1.</span> <span class="toc-text">对非C\C++程序的反编译</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81AutoIt"><span class="toc-number">1.1.</span> <span class="toc-text">1、AutoIt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E8%84%9A%E6%9C%AC"><span class="toc-number">1.1.1.</span> <span class="toc-text">编译脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.2.</span> <span class="toc-text">独立可执行文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AutoIt%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="toc-number">1.1.3.</span> <span class="toc-text">AutoIt反编译</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/" title="CVE-2020-1380漏洞利用及EXP构造"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/ayutthaya-screenshot-001.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CVE-2020-1380漏洞利用及EXP构造"/></a><div class="content"><a class="title" href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/" title="CVE-2020-1380漏洞利用及EXP构造">CVE-2020-1380漏洞利用及EXP构造</a><time datetime="2020-12-26T16:00:00.000Z" title="发表于 2020-12-27 00:00:00">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/" title="IEJscript9中的一些数据对象研究"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/rialto-screenshot-004.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IEJscript9中的一些数据对象研究"/></a><div class="content"><a class="title" href="/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/" title="IEJscript9中的一些数据对象研究">IEJscript9中的一些数据对象研究</a><time datetime="2020-12-24T16:00:00.000Z" title="发表于 2020-12-25 00:00:00">2020-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" title="Emotet病毒分析"><img src="https://overwatch.nosdn.127.net/a/images/2021/1/13/70dadcf36262b15cb803223ed56ad252.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Emotet病毒分析"/></a><div class="content"><a class="title" href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" title="Emotet病毒分析">Emotet病毒分析</a><time datetime="2020-10-28T16:00:00.000Z" title="发表于 2020-10-29 00:00:00">2020-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/07/20/%E4%B8%80%E4%B8%AA%E5%A4%9A%E5%B1%82%E5%8A%A0%E5%AF%86%E6%B7%B7%E6%B7%86%E7%9A%84powershell%E6%9C%A8%E9%A9%AC&amp;%E5%8B%92%E7%B4%A2%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/" title="Powershell勒索病毒"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/brigitte-screenshot-01_n2d31.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Powershell勒索病毒"/></a><div class="content"><a class="title" href="/2020/07/20/%E4%B8%80%E4%B8%AA%E5%A4%9A%E5%B1%82%E5%8A%A0%E5%AF%86%E6%B7%B7%E6%B7%86%E7%9A%84powershell%E6%9C%A8%E9%A9%AC&amp;%E5%8B%92%E7%B4%A2%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/" title="Powershell勒索病毒">Powershell勒索病毒</a><time datetime="2020-07-19T16:00:00.000Z" title="发表于 2020-07-20 00:00:00">2020-07-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/03/20/DroidBox%E9%85%8D%E7%BD%AE/" title="DroidBox配置"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/hanamura-screenshot-010.16TUs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DroidBox配置"/></a><div class="content"><a class="title" href="/2020/03/20/DroidBox%E9%85%8D%E7%BD%AE/" title="DroidBox配置">DroidBox配置</a><time datetime="2020-03-19T16:00:00.000Z" title="发表于 2020-03-20 00:00:00">2020-03-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Richardo.M</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

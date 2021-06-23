@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>V2ray完全使用教程(自用) | Richardo</title><meta name="keywords" content="V2ray+tls+websocket"><meta name="author" content="Richardo.M"><meta name="copyright" content="Richardo.M"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="科学上网，切勿误入歧途">
+<meta property="og:type" content="article">
+<meta property="og:title" content="V2ray完全使用教程(自用)">
+<meta property="og:url" content="https://richard447.github.io/2020/03/02/V2ray%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Richardo">
+<meta property="og:description" content="科学上网，切勿误入歧途">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://overwatch.nosdn.127.net/2/media/screenshots/Genji03.jpg">
+<meta property="article:published_time" content="2020-03-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-06T16:00:00.000Z">
+<meta property="article:author" content="Richardo.M">
+<meta property="article:tag" content="科学上网">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://overwatch.nosdn.127.net/2/media/screenshots/Genji03.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://richard447.github.io/2020/03/02/V2ray%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'V2ray完全使用教程(自用)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-07 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/self_icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://overwatch.nosdn.127.net/2/media/screenshots/ayutthaya-screenshot-003.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Richardo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">V2ray完全使用教程(自用)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-03-01T16:00:00.000Z" title="发表于 2020-03-02 00:00:00">2020-03-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-06T16:00:00.000Z" title="更新于 2021-03-07 00:00:00">2021-03-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%A2%AF%E5%AD%90/">梯子</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="V2ray完全使用教程(自用)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="V2ray使用指南"><a href="#V2ray使用指南" class="headerlink" title="V2ray使用指南"></a>V2ray使用指南</h1><h6 id="申明：本教程仅作为学习用途，不可用于违法犯罪之途。"><a href="#申明：本教程仅作为学习用途，不可用于违法犯罪之途。" class="headerlink" title="申明：本教程仅作为学习用途，不可用于违法犯罪之途。"></a>申明：本教程仅作为学习用途，不可用于违法犯罪之途。</h6><h5 id="搭建必需的东西"><a href="#搭建必需的东西" class="headerlink" title="搭建必需的东西"></a>搭建必需的东西</h5><ul>
+<li><p><strong>一台国外的VPS</strong></p>
+</li>
+<li><p><strong>ssh连接工具</strong></p>
+</li>
+<li><h5 id="v2ray客户端"><a href="#v2ray客户端" class="headerlink" title="v2ray客户端"></a>v2ray客户端</h5></li>
+</ul>
+<h3 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h3><h4 id="一、购买一台国外的VPS"><a href="#一、购买一台国外的VPS" class="headerlink" title="一、购买一台国外的VPS"></a>一、购买一台国外的VPS</h4><ul>
+<li><p>目前国外较好的vps厂商有：vultr、搬瓦工，但是都比较贵，本次搭建选择一个较便宜的俄罗斯厂商：<strong><a target="_blank" rel="noopener" href="https://justhost.ru/services/vps/?tariff=2#changeconfig">https://justhost.ru/services/vps/?tariff=2#changeconfig</a></strong>，考虑到翻译上的问题，所以购买步骤如下：</p>
+<ul>
+<li>打开url:<strong><a target="_blank" rel="noopener" href="https://justhost.ru/auth/register?returl=%2Fbilling%2Frenew">https://justhost.ru/auth/register?returl=%2Fbilling%2Frenew</a></strong>，进入页面如下，输入自己的电子邮件账户，QQ邮箱可以注册，然后你的邮箱会收到一封激活账户的邮件，收到的邮件可以使用翻译软件翻译内容完成注册。</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200302120153997.png" alt="image-20200302120153997"></p>
+<ul>
+<li>购买VPS，这里选择一个1核512内存5G存储的服务器，这个配置基本满足使用，价格也比较便宜。</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200302121231194.png" alt="image-20200302121231194"></p>
+<ul>
+<li>选择服务器后需要修改下服务器的初始配置，购买时间、初始系统。机房非必须选，也可自动分配，没有测试过几个机房延迟差别，但是估计也差不多。</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200302121635756.png" alt="image-20200302121635756"></p>
+<p> <img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200302121743963.png" alt="image-20200302121743963"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200302122149646.png" alt="image-20200302122149646"></p>
+<ul>
+<li>选择好了之后就在右侧框体中选择购买：</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200302122337416.png" alt="image-20200302122337416"></p>
+<ul>
+<li>跳转页面，后可以使用支付宝支付，付款流程如下，支付完成后大概需要等待两个小时左右会收到邮件，在邮件里面有服务器的ip、root账户密码，务必保存好邮件。</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200302122420247.png" alt="image-20200302122420247"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200302122614346.png" alt="image-20200302122614346"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200302122634610.png" alt="image-20200302122634610"></p>
+</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200302122647352.png" alt="image-20200302122647352"></p>
+<h4 id="二、安装必须软件"><a href="#二、安装必须软件" class="headerlink" title="二、安装必须软件"></a>二、安装必须软件</h4><ul>
+<li>安装ssh连接工具，虽然windows的cmd中也可以使用ssh连接服务器，但是为了使用方便还是使用连接工具比较好。目前较好用的ssh连接工具有：<a target="_blank" rel="noopener" href="http://www.hostbuf.com/downloads/finalshell_install.exe">finalshell</a> 、Xshell等，很久没有用过xshell，似乎需要激活破解，而且免费的finalshell很好用，唯一的缺点是需要java运行环境，需要自己配置java环境才能运行，可以百度解决。</li>
+</ul>
+<h3 id="进阶：V2ray-WS-TLS"><a href="#进阶：V2ray-WS-TLS" class="headerlink" title="进阶：V2ray+WS+TLS"></a>进阶：V2ray+WS+TLS</h3><p>​        购买一个国外的域名(不需要备案很方便)，将该域名解析到你的服务器上，然后通过安装</p>
+<h4 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h4><p>​        购买域名，可以去namesilo购买，.top的域名很便宜，也可以去freenom.com申请免费的域名(PS：申请了很多次，没有给我的邮箱发邮件，不太好使。。)，这里我直接在namesilo购买一个新的域名，下面是详细步骤</p>
+<ul>
+<li>注册一个账户，打开<a target="_blank" rel="noopener" href="https://www.namesilo.com/create_account.php，如下，注册完后，你的邮箱会收到一份激活账户的邮件，按照邮件的内容激活账户(一般是点击激活链接)。">https://www.namesilo.com/create_account.php，如下，注册完后，你的邮箱会收到一份激活账户的邮件，按照邮件的内容激活账户(一般是点击激活链接)。</a></li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310132720162.png" alt="image-20200310132720162"></p>
+<ul>
+<li>然后就可以前往主页购买域名，</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310133147665.png" alt="image-20200310133147665"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310133220307.png" alt="image-20200310133220307"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310133527217.png" alt="image-20200310133527217"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310133813505.png" alt="image-20200310133813505"></p>
+<ul>
+<li>然后扫码支付。继续配置域名</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310134247812.png" alt="image-20200310134247812"></p>
+<ul>
+<li>修改DNS解析配置，这里将已有的解析记录全部删除，然后重新添加两条A解析记录。如下</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310134947313.png" alt="image-20200310134947313"></p>
+<ul>
+<li>修改域名解析服务器，因为用cloudflare解析速度更快，所以使用cloudflare的域名解析服务器，修改如下，将域名服务器修改为：<strong>henry.ns.cloudflare.com</strong>和<strong>lisa.ns.cloudflare.com</strong>。下拉选择submit。修改生效需要等一段时间，域名的配置完成。</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310135420435.png" alt="image-20200310135420435"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310135843924.png" alt="image-20200310135843924"></p>
+<h3 id="Step2-使用CloudFlare解析域名"><a href="#Step2-使用CloudFlare解析域名" class="headerlink" title="Step2 使用CloudFlare解析域名"></a>Step2 使用CloudFlare解析域名</h3><ul>
+<li>首先，还是在<a target="_blank" rel="noopener" href="https://www.cloudflare.com/">cloudflare</a>的官网注册账户，打开(<a target="_blank" rel="noopener" href="https://dash.cloudflare.com/sign-up),填写信息，完成注册、激活。">https://dash.cloudflare.com/sign-up),填写信息，完成注册、激活。</a></li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310140003170.png" alt="image-20200310140003170"></p>
+<ul>
+<li>解析域名</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310140131885.png" alt="image-20200310140131885"></p>
+<p><img src="C:\Users\Demon\AppData\Roaming\Typora\typora-user-images\image-20200310140218269.png" alt="image-20200310140218269"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310140412001.png" alt="image-20200310140412001"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310140702045.png" alt="image-20200310140702045"></p>
+<ul>
+<li>最后这一步让更改nameservers，因为之前我们改过了所以不需要动了。</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310140725589.png" alt="image-20200310140725589"></p>
+<ul>
+<li>最后等待域名解析成功，也可以使用ping这个域名查看IP地址确定是否解析正确。</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310221312234.png" alt="image-20200310221312234"></p>
+<h4 id="Step-3-服务器配置"><a href="#Step-3-服务器配置" class="headerlink" title="Step 3 服务器配置"></a>Step 3 服务器配置</h4><ul>
+<li>这里直接使用<a target="_blank" rel="noopener" href="https://github.com/pengchujin/v2rayDocker">github项目</a>，</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310222055293.png" alt="image-20200310222055293"></p>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20200310222139366.png" alt="image-20200310222139366"></p>
+<p>输入命令：</p>
+<ul>
+<li>安装docker:<code>curl -fsSL https://get.docker.com -o get-docker.sh &amp;&amp; bash get-docker.sh</code></li>
+<li>如果是root权限则不需要使用sudo命令：将下面的YOURDOMAIN.com换成你的域名即可。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --rm --name v2ray -p 443:443 -p 80:80 -v $HOME/.caddy:/root/.caddy  pengchujin/v2ray_ws:0.08 YOURDOMAIN.COM V2RAY_WS 0890b53a-e3d4-4726-bd2b-52574e8588c4 &amp;&amp; sleep 3s &amp;&amp; docker logs v2ray</span><br></pre></td></tr></table></figure>
+<p>特别感谢该github博主！使用过别忘记点个star!</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Richardo.M</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://richard447.github.io/2020/03/02/V2ray%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">https://richard447.github.io/2020/03/02/V2ray%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://richard447.github.io" target="_blank">Richardo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a></div><div class="post_share"><div class="social-share" data-image="https://overwatch.nosdn.127.net/2/media/screenshots/Genji03.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/03/07/010Editor%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/"><img class="prev-cover" src="https://overwatch.nosdn.127.net/2/media/screenshots/busan-screenshot-002.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">010Editor破解(Win10_X64平台)</div></div></a></div><div class="next-post pull-right"><a href="/2020/02/05/oledump-py%E5%AF%BC%E5%87%BA%E6%96%87%E6%A1%A3%E4%B8%AD%E7%9A%84%E5%AE%8F%E4%BB%A3%E7%A0%81/"><img class="next-cover" src="https://overwatch.nosdn.127.net/2/media/screenshots/temple-of-anubis-screenshot-005.2dA8f.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">oledump.py导出文档中的宏代码</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/self_icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Richardo.M</div><div class="author-info__description">心有猛虎，细嗅蔷薇</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/richard447"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">We1C0me_t0_Richard0's W0rld</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#V2ray%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text">V2ray使用指南</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%94%B3%E6%98%8E%EF%BC%9A%E6%9C%AC%E6%95%99%E7%A8%8B%E4%BB%85%E4%BD%9C%E4%B8%BA%E5%AD%A6%E4%B9%A0%E7%94%A8%E9%80%94%EF%BC%8C%E4%B8%8D%E5%8F%AF%E7%94%A8%E4%BA%8E%E8%BF%9D%E6%B3%95%E7%8A%AF%E7%BD%AA%E4%B9%8B%E9%80%94%E3%80%82"><span class="toc-number">1.0.0.0.0.1.</span> <span class="toc-text">申明：本教程仅作为学习用途，不可用于违法犯罪之途。</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E5%BF%85%E9%9C%80%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">搭建必需的东西</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#v2ray%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">v2ray客户端</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.0.1.</span> <span class="toc-text">详细步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%B4%AD%E4%B9%B0%E4%B8%80%E5%8F%B0%E5%9B%BD%E5%A4%96%E7%9A%84VPS"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">一、购买一台国外的VPS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85%E5%BF%85%E9%A1%BB%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">二、安装必须软件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%EF%BC%9AV2ray-WS-TLS"><span class="toc-number">1.0.2.</span> <span class="toc-text">进阶：V2ray+WS+TLS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step1"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">Step1</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-%E4%BD%BF%E7%94%A8CloudFlare%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D"><span class="toc-number">1.0.3.</span> <span class="toc-text">Step2 使用CloudFlare解析域名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-3-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">Step 3 服务器配置</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/" title="CVE-2020-1380漏洞利用及EXP构造"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/ayutthaya-screenshot-001.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CVE-2020-1380漏洞利用及EXP构造"/></a><div class="content"><a class="title" href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/" title="CVE-2020-1380漏洞利用及EXP构造">CVE-2020-1380漏洞利用及EXP构造</a><time datetime="2020-12-26T16:00:00.000Z" title="发表于 2020-12-27 00:00:00">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/" title="IEJscript9中的一些数据对象研究"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/rialto-screenshot-004.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IEJscript9中的一些数据对象研究"/></a><div class="content"><a class="title" href="/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/" title="IEJscript9中的一些数据对象研究">IEJscript9中的一些数据对象研究</a><time datetime="2020-12-24T16:00:00.000Z" title="发表于 2020-12-25 00:00:00">2020-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" title="Emotet病毒分析"><img src="https://overwatch.nosdn.127.net/a/images/2021/1/13/70dadcf36262b15cb803223ed56ad252.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Emotet病毒分析"/></a><div class="content"><a class="title" href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" title="Emotet病毒分析">Emotet病毒分析</a><time datetime="2020-10-28T16:00:00.000Z" title="发表于 2020-10-29 00:00:00">2020-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/07/20/%E4%B8%80%E4%B8%AA%E5%A4%9A%E5%B1%82%E5%8A%A0%E5%AF%86%E6%B7%B7%E6%B7%86%E7%9A%84powershell%E6%9C%A8%E9%A9%AC&amp;%E5%8B%92%E7%B4%A2%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/" title="Powershell勒索病毒"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/brigitte-screenshot-01_n2d31.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Powershell勒索病毒"/></a><div class="content"><a class="title" href="/2020/07/20/%E4%B8%80%E4%B8%AA%E5%A4%9A%E5%B1%82%E5%8A%A0%E5%AF%86%E6%B7%B7%E6%B7%86%E7%9A%84powershell%E6%9C%A8%E9%A9%AC&amp;%E5%8B%92%E7%B4%A2%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/" title="Powershell勒索病毒">Powershell勒索病毒</a><time datetime="2020-07-19T16:00:00.000Z" title="发表于 2020-07-20 00:00:00">2020-07-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/03/20/DroidBox%E9%85%8D%E7%BD%AE/" title="DroidBox配置"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/hanamura-screenshot-010.16TUs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DroidBox配置"/></a><div class="content"><a class="title" href="/2020/03/20/DroidBox%E9%85%8D%E7%BD%AE/" title="DroidBox配置">DroidBox配置</a><time datetime="2020-03-19T16:00:00.000Z" title="发表于 2020-03-20 00:00:00">2020-03-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Richardo.M</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

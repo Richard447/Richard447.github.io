@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IEJscript9中的一些数据对象研究 | Richardo</title><meta name="keywords" content="jscript9"><meta name="author" content="Richardo.M"><meta name="copyright" content="Richardo.M"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JS中一些对象结构的研究Array对象代码层 Array对象是一个很宽泛的对象，可以在单个变量中存储多个值，并且Array对象的元素赋值不受类型限制，如下  12345var an &#x3D; new Array(10);an[0] &#x3D; 1;an[1] &#x3D; &quot;a&quot;;an[2] &#x3D; &quot;2.2&quot;console.log(an);   &#x2F;&#x2F;1,&quot;a&quot;,2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IEJscript9中的一些数据对象研究">
+<meta property="og:url" content="https://richard447.github.io/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/index.html">
+<meta property="og:site_name" content="Richardo">
+<meta property="og:description" content="JS中一些对象结构的研究Array对象代码层 Array对象是一个很宽泛的对象，可以在单个变量中存储多个值，并且Array对象的元素赋值不受类型限制，如下  12345var an &#x3D; new Array(10);an[0] &#x3D; 1;an[1] &#x3D; &quot;a&quot;;an[2] &#x3D; &quot;2.2&quot;console.log(an);   &#x2F;&#x2F;1,&quot;a&quot;,2">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://overwatch.nosdn.127.net/2/media/screenshots/rialto-screenshot-004.jpg">
+<meta property="article:published_time" content="2020-12-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-06T16:00:00.000Z">
+<meta property="article:author" content="Richardo.M">
+<meta property="article:tag" content="jscript9">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://overwatch.nosdn.127.net/2/media/screenshots/rialto-screenshot-004.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://richard447.github.io/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'IEJscript9中的一些数据对象研究',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-07 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/self_icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://overwatch.nosdn.127.net/2/media/screenshots/rialto-screenshot-003.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Richardo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">IEJscript9中的一些数据对象研究</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-12-24T16:00:00.000Z" title="发表于 2020-12-25 00:00:00">2020-12-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-06T16:00:00.000Z" title="更新于 2021-03-07 00:00:00">2021-03-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/">漏洞分析</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="IEJscript9中的一些数据对象研究"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="JS中一些对象结构的研究"><a href="#JS中一些对象结构的研究" class="headerlink" title="JS中一些对象结构的研究"></a>JS中一些对象结构的研究</h1><h2 id="Array对象"><a href="#Array对象" class="headerlink" title="Array对象"></a>Array对象</h2><h6 id="代码层"><a href="#代码层" class="headerlink" title="代码层"></a>代码层</h6><ul>
+<li>Array对象是一个很宽泛的对象，可以在单个变量中存储多个值，并且Array对象的元素赋值不受类型限制，如下</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> an = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</span><br><span class="line">an[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">an[<span class="number">1</span>] = <span class="string">&quot;a&quot;</span>;</span><br><span class="line">an[<span class="number">2</span>] = <span class="string">&quot;2.2&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(an);   <span class="comment">//1,&quot;a&quot;,2.2</span></span><br></pre></td></tr></table></figure>
+<h6 id="系统底层"><a href="#系统底层" class="headerlink" title="系统底层"></a>系统底层</h6><ul>
+<li>由于JS中没有十分明显的处理函数，只能通过调试来查看，编写如下代码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">alert(<span class="string">&quot;Start!&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;<span class="number">0x1000</span>; i++)&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	a[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">0x1000</span>/<span class="number">4</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; a[i].length;j++)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">		a[i][j] = <span class="number">0x666</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">alert(<span class="string">&quot;Done!&quot;</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>目前已知的一个API是可以用于</li>
+<li>当Array中存放多种类型数据时的情况是怎么样的？？？采用以下语句示例</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="string">&quot;Start!!!&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> an = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">0x30</span>);</span><br><span class="line">an[<span class="number">0</span>] = <span class="number">32</span>;</span><br><span class="line">an[<span class="number">1</span>] = <span class="string">&quot;PWN!!!&quot;</span>;</span><br><span class="line">an[<span class="number">2</span>] = &#123;&#125;;</span><br><span class="line">alert(an[<span class="number">0</span>]);</span><br><span class="line">alert(an[<span class="number">1</span>]);</span><br><span class="line">alert(an[<span class="number">2</span>]);</span><br><span class="line">alert(<span class="string">&quot;end&quot;</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对代码使用windbg进行调试，因为有一次整数赋值，所以依然可以使用一个整数赋值的API来定位其赋值操作，下断、g，可以观察到此处赋值，使用pt命令执行到返回处，直接获取到Array对象地址</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bp jscript9!Js::JavascriptArray::DirectSetItem_Full&lt;int&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229180435869.png" alt="picture"><br><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229180550248.png" alt="picture"></p>
+<ul>
+<li>可以看到初始的赋值，然后直接运行，再break，查看这块内存情况</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229181047617.png" alt="picture"></p>
+<ul>
+<li>这里偶然发现了字符串的存储内容</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229181445003.png" alt="picture"></p>
+<h2 id="ArrayBuffer对象"><a href="#ArrayBuffer对象" class="headerlink" title="ArrayBuffer对象"></a>ArrayBuffer对象</h2><h6 id="代码层-1"><a href="#代码层-1" class="headerlink" title="代码层"></a>代码层</h6><ul>
+<li>ArrayBuffer对象代表存储二进制数据的一段内存，它不能直接读写，只能通过视图(TypedArray视图和DataView视图来读写)，视图的作用是以指定的格式读写二进制数据</li>
+<li>ArrayBuffer的使用方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ab = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(<span class="number">0x30</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>该ArrayBuffer生成了48字节的内存区域，每个字节的值默认都是0。如果要读写这块内存区域的内容，需要为它指定视图，创建一个DataView视图，来读取它的数据</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dv = <span class="keyword">new</span> DataVieW(ab)</span><br><span class="line">dv.getUint8(<span class="number">0</span>) <span class="comment">//值为0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>同样可以使用TypedArray视图来处理ArrayBuffer中的数据，但TypedArray不只有单独一个类型，有一组类型可以使用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ab = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(<span class="number">0x80</span>)</span><br><span class="line"><span class="keyword">var</span> array1 = <span class="keyword">new</span> <span class="built_in">Int32Array</span>(ab);</span><br><span class="line">array1[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> array2 = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(ab);</span><br><span class="line">array2[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(array1[<span class="number">0</span>]);  <span class="comment">//值为2</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>由于两个视图修改的是同一块内存，所以一个视图修改底层内存会影响到另一个视图</li>
+</ul>
+<h6 id="系统底层-1"><a href="#系统底层-1" class="headerlink" title="系统底层"></a>系统底层</h6><ul>
+<li>上面讲述JS代码如何生成ArrayBuffer对象，接下来将调试js引擎底层Jscript9.dll来在系统底层中探索ArrayBuffer的结构,使用IDA反编译Jscript9.dll搜索跟ArrayBuffer相关的函数，最终定位到Js::JavascriptArrayBuffer::Create函数</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201224162836786.png" alt="picture"></p>
+<ul>
+<li>可以从代码中观察到该处利用malloc申请空间，使用windbg调试如下代码</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">var</span> an = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(<span class="number">0x100</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Int32Array</span>(an);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">fn[<span class="number">0</span>] = <span class="number">0x66</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">alert(<span class="string">&quot;break&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="built_in">console</span>.log(fn[<span class="number">0</span>]);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用windbg附加到没有参数的IE进程，对上面分析到的ArrayBuffer::ArrayBuffer函数下断，由于系统会有很多申请的操作，可以下条件断点，当其参数中的Size(edi传入)为我们申请的空间大小时断下，断点如下</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bp Addr  &quot;if(edi!=0x100)&#123;gc&#125;&quot;   //addr 需要自行计算ArrayBuffer函数的偏移</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201224164855124.png" alt="picture"></p>
+<ul>
+<li>成功断下，继续调试到调用malloc地方，获取此处申请到的空间，根据IDA中的代码，这块内存后续会被覆盖为0</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201224174059712.png" alt="picture"></p>
+<ul>
+<li>顺便分析一下ArrayBuffer对象的结构，在ArrayBuffer中可以观察到，存放申请内存的地址的指针就是ArrayBuffer对象，其在这个函数中生成</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201224205204872.png" alt="picture"></p>
+<ul>
+<li>从代码中可以确定这个对象大小应该是0x24，使用windbg调试到上面函数返回ArrayBuffer对象处，可以观察到该对象的内存结构，通过与IDA中的结构分析，可以确定一下数据的信息</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201225100949114.png" alt="picture"></p>
+<ul>
+<li>通过IDA代码分析确定ArrayBuffer对象结构内容</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ArrayBuffer</span><br><span class="line">0x00	ArrayBuffer虚表</span><br><span class="line">0x04	DynamicObject虚表</span><br><span class="line">0x1c	ArrayBuffer Memory</span><br><span class="line">0x20	ArrayBuffer Memory Size</span><br></pre></td></tr></table></figure>
+<h2 id="TypedArray"><a href="#TypedArray" class="headerlink" title="TypedArray"></a>TypedArray</h2><ul>
+<li>刚刚提到了ArrayBuffer，同时TypedArray是可以对ArrayBuffer进行读写操作的，在系统底层这个对象是如何创建起来的？通过IDA分析，由于TypedArray有很多种类，所以这里不一一举例，拿Float32Array举例，TypedArray有两种申请方式</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种以ArrayBuffer对象作为参数，其在读写时操作的内存为ArrayBuffer</span></span><br><span class="line"><span class="keyword">var</span> ab = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(<span class="number">0x80</span>);</span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Float32Array</span>(ab);</span><br><span class="line">fn[<span class="number">0</span>] = <span class="number">2.0</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>由于没有特别直接的API，所以需要先对ArrayBuffer创建处下断，然后对申请到的内存空间下访问断点，看断到赋值操作时的栈信息结构</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bp jscript9!js::javascriptArrayBuffer::Create+0x53 &quot;.if(edi!=0x80)&#123;gc;&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229113541069.png" alt="picture"></p>
+<ul>
+<li>再次跑起来断下，查看调用栈</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229113739144.png" alt="picture"></p>
+<ul>
+<li>同时在IDA中定位该处调用，可以确定edi寄存器存放着TypedArray</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229114701016.png" alt="picture"><br><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229115421723.png" alt="picture"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TypedArray对象结构</span><br><span class="line">0x00			虚表</span><br><span class="line">0x04			未知</span><br><span class="line">0x1c			该对象结构的大小，如果传入的参数是ArrayBuffer则，是ArrayBuffer大小Size 除以 该Type的基础大小，例：float32Array传入的ArrayBuffer大小为0x80,则该处为0x80/0x4 = 0x20</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果使用第二种方式申请TypedArray对象，其调用方式略有不同</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第二种直接传入大小参数</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Float32Array</span>(<span class="number">0x80</span>);</span><br><span class="line">fn[<span class="number">0</span>] = <span class="number">3.0</span>;	</span><br></pre></td></tr></table></figure>
+<ul>
+<li>由于TypedArray也是通过ArrayBuffer来存储数据的，所以即使没有定义ArrayBuffer，其内部的API会申请ArrayBuffer，可仍然在创建ArrayBuffer处下断，此时该处申请的大小应该为4*0x80 = 0x200。调试断下</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bp jscript9!js::javascriptArrayBuffer::Create+0x53 &quot;.if(edi!=0x200)&#123;gc;&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229142632615.png" alt="picture"></p>
+<ul>
+<li>调用栈结构</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229142701311.png" alt="picture"></p>
+<h2 id="LargeHeapBlock对象"><a href="#LargeHeapBlock对象" class="headerlink" title="LargeHeapBlock对象"></a>LargeHeapBlock对象</h2><ul>
+<li>LargeHeapBlock是一个无法在js代码中找到的对象，该对象会在大数组生成时创建，可以通过生成大量Array触发该对象的生成，如下代码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">alert(<span class="string">&quot;start&quot;</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> an = <span class="keyword">new</span> <span class="built_in">Array</span>();</span></span><br><span class="line"><span class="javascript"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">0x1000</span>;i++)</span></span><br><span class="line"><span class="javascript">&#123;</span></span><br><span class="line"><span class="javascript">	an[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">0x1000</span>);</span></span><br><span class="line"><span class="javascript">	an[i][<span class="number">0</span>] = <span class="number">0x66</span>;</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript">alert(<span class="string">&quot;Alloc 1&quot;</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Array</span>();</span></span><br><span class="line"><span class="javascript"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">0x200</span>;i++)&#123;</span></span><br><span class="line"><span class="javascript">	b[i] = <span class="keyword">new</span> <span class="built_in">Array</span>((<span class="number">0x1000</span>-<span class="number">0x20</span>)/<span class="number">4</span>);</span></span><br><span class="line"><span class="javascript">	<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;b[i].length;++j)</span></span><br><span class="line"><span class="javascript">		b[i][j] = <span class="number">0x111</span>;</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript">alert(<span class="string">&quot;Alloc 2&quot;</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> c = <span class="keyword">new</span> <span class="built_in">Array</span>();</span></span><br><span class="line"><span class="javascript"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">0x200</span>;i++)</span></span><br><span class="line"><span class="javascript">&#123;</span></span><br><span class="line"><span class="javascript">	c[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">0x3bf8</span>);</span></span><br><span class="line"><span class="javascript">	<span class="keyword">for</span>(<span class="keyword">var</span> j =<span class="number">0</span>;j&lt;c[i].length;++j)&#123;</span></span><br><span class="line"><span class="javascript">		c[i][j] = <span class="number">0x222</span>;</span></span><br><span class="line"><span class="javascript">	&#125;</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript">alert(<span class="string">&quot;done&quot;</span>);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里使用生成大量Array数组来完成对LargeheapBlock的生成，这里设置三种申请的空间，测试获取申请的LargeHeapBlock的大小，以下几个API是关键定位的地方，查看IDA中的反汇编代码</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jscript9!Js::JavascriptArray::DirectSetItem_Full&lt;int&gt;   //对Array数组元素进行赋值为整数会调用的API</span><br><span class="line">jscript9!Js::SparseArraySegment&lt;int&gt;::SetElement      //赋值函数</span><br><span class="line">jscript9!LargeHeapBlock::New         //申请LargeHeapBlock内存</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201228110810188.png" alt="picture"></p>
+<ul>
+<li><p>下断，调试，可以得到这三种申请方式下LargeHeapBlock的大小</p>
+<ul>
+<li>当申请Array大小为0x1000时，LargeHeapBlock大小为0x68</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201228113534491.png" alt="picture"><br><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201228113424638.png" alt="picture"></p>
+<ul>
+<li>当申请Array大小为(0x1000-0x20)/4时，LargeHeapBlock大小为0x8c</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201228113630573.png" alt="picture"><br><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201228113710885.png" alt="picture"></p>
+<ul>
+<li>当申请Array大小为0x3bf8时，LargeHeapBlock大小为</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201228114238112.png" alt="picture"><br><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201228114321996.png" alt="picture"><br>此处根据LargeHeapBlock传入代码的大小，可以确定申请大小公式如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(a/32 + a)*5+0x88   基础大小为0x58</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此处也有个重要的点，确定Array对象</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">断到该处函数时，可以使用pt命令执行到函数返回处，该处的esi为赋值的数据、ecx为array存储数据的内存空间、edi为Array对象的地址</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229165722106.png" alt="picture"><br><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229165756186.png" alt="picture"><br><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201229165904467.png" alt="picture"></p>
+<h2 id="NativeArray结构"><a href="#NativeArray结构" class="headerlink" title="NativeArray结构"></a>NativeArray结构</h2><ul>
+<li>前面提到了Array结构，也得提一下Array中较为特殊的结构——NativeArray，实际上Array结构比较特别，其在确定其内部数据之后将会把自己确定为一种Array，下面举例实现</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="comment">//Int32Array</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">alert(<span class="string">&quot;Start!&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">var</span> an1 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">0x50</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">0x50</span>;i++)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	an1[i] = <span class="number">0x30</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">alert(an1[<span class="number">0</span>]);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="comment">//Float32Array</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">var</span> an2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">0x50</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">0x50</span>;i++)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	an2[i] = <span class="number">2.2</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">alert(an2[<span class="number">0</span>]);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="comment">//NativeArray</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">var</span> an3 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">an3[<span class="number">0</span>] = <span class="number">3</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">alert(an3[<span class="number">0</span>]);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="comment">//Array</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">var</span> an4 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">0x50</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">an4[<span class="number">0</span>] = <span class="number">0x30</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">an4[<span class="number">1</span>] = <span class="string">&quot;aaaa&quot;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">an4[<span class="number">2</span>] = &#123;&#125;;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">alert(an4[<span class="number">0</span>]);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">alert(<span class="string">&quot;End&quot;</span>);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>首先看第一个数组<strong>an1</strong>，定位其赋值操作的函数仍然下以下断点，搜索相关的断点</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231155428285.png" alt="picture"></p>
+<ul>
+<li>第一个是进行int数据赋值，对对应的函数下断，跑起来，断下，查看esi是否为赋值的0x30</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bp 0x653c4a71</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231155555366.png" alt="picture"></p>
+<ul>
+<li>直接使用pt命令执行到返回，查看ecx和edi数据，ecx中存放着Array对象控制的内存区域，edi中存放着Array对象的数据</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231155826499.png" alt="picture"></p>
+<ul>
+<li>继续运行直至全部赋值完，运行到Alert处，Break，再次查看Array对象数据</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231160249998.png" alt="picture"></p>
+<ul>
+<li>接下来查看第二个Array <strong>an2</strong>，对刚才搜索到的参数为double类型的函数进行下断，待其重新断下，此时不能通过esi来查看赋值数据，直接pt运行到函数返回处查看内存数据。</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231160733786.png" alt="picture"></p>
+<ul>
+<li>再次运行到Alert显示数据处，查看</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231160828637.png" alt="picture"></p>
+<ul>
+<li>接下来查看<strong>an3</strong>,因为第三个Array是<strong>NativeArray</strong>，静态的Array，其对象结构稍有不一样，通过分析jscript9.dll定位到一处相关的API，在windbg中对这个Api进行搜索</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231162934238.png" alt="picture"><br><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231163105369.png" alt="picture"></p>
+<ul>
+<li>这里确定有两个API,观察其IDA中的差异,发现两个函数仅仅是参数不一样，再通过引用发现被调用的地方也不一样，对两处函数均下断点，发现只会断在参数中包含uint的函数</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231171618041.png" alt="picture"><br><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231171640938.png" alt="picture"></p>
+<ul>
+<li>观察断下的调用栈</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231172723238.png" alt="picture"></p>
+<ul>
+<li>所以确定了NativeArray的调用顺序，再IDA中查看反编译代码可以确定该函数返回处，eax存放着NativeArray对象，调试查看,但是没有完整的赋值，继续运行到alert语句，break，查看对象内存</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231173225356.png" alt="picture"></p>
+<ul>
+<li>可以发现NativeIntArray的结构和之前的Array发生了变化，其存放数据的buffer和对象在同一块内存空间中。</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20201231173648100.png" alt="picture"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NativeArray</span><br><span class="line">0x00			虚表</span><br><span class="line">0x10			Size</span><br><span class="line">0x14			BufferAddr	-----|</span><br><span class="line">0x38			Buffer		&lt;----|		</span><br></pre></td></tr></table></figure>
+<h2 id="DataView结构"><a href="#DataView结构" class="headerlink" title="DataView结构"></a>DataView结构</h2><ul>
+<li>采用如下代码测试</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alert(&quot;Start!&quot;);</span><br><span class="line">var an = new Array(0x30);</span><br><span class="line">var dv = new DataView(new ArrayBuffer(0x80));</span><br><span class="line">an[0] = dv;</span><br><span class="line">alert(&quot;end!&quot;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>下两个断点，一个是查看ArrayBuffer的生成地址，另一个是Array的赋值和生成情况，以便观察DataView结构</li>
+</ul>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bp jscript9!js::javascriptArrayBuffer::Create+<span class="number">0</span>x53 <span class="string">&quot;.if(edi!=0x80)&#123;gc;&#125;&quot;</span></span><br><span class="line">bp jscript9!js::javascriptArray::DirectSetItem_Full</span><br></pre></td></tr></table></figure>
+<ul>
+<li>直接运行，待其断下，记录ArrayBuffer的地址，</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20210104101326522.png" alt="picture"></p>
+<ul>
+<li>继续运行，断到Array数组赋值语句，运行到返回处(pt)，查看Array数组</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20210104101446334.png" alt="picture"></p>
+<ul>
+<li>继续运行然后断下，查看Array中的DataView</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20210104101740484.png" alt="picture"></p>
+<ul>
+<li>定位到DataView查看其结构，并且定位到了DataView创建函数</li>
+</ul>
+<p><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20210104170740441.png" alt="picture"><br><img src="https://gitee.com/recird/blogimages/raw/master/img/image-20210104201328563.png" alt="picture"></p>
+<ul>
+<li>DataView读写数据的两种方式，</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">alert(&quot;start&quot;);</span><br><span class="line">var dv1 = new DataView(new ArrayBuffer(0x10));</span><br><span class="line">var dv2 = new DataView(new ArrayBuffer(0x10));</span><br><span class="line">dv1.setInt32(0,0x666,true);</span><br><span class="line">dv2.setInt32(0,0x555,true);</span><br><span class="line">alert(&quot;read1&quot;);</span><br><span class="line">alert(DataView.prototype.getInt32.call(dv1,0,true));</span><br><span class="line">alert(&quot;read2&quot;);</span><br><span class="line">alert(dv2.getInt32.call(dv1,0,true));</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Richardo.M</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://richard447.github.io/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/">https://richard447.github.io/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://richard447.github.io" target="_blank">Richardo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/jscript9/">jscript9</a></div><div class="post_share"><div class="social-share" data-image="https://overwatch.nosdn.127.net/2/media/screenshots/rialto-screenshot-004.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/"><img class="prev-cover" src="https://overwatch.nosdn.127.net/2/media/screenshots/ayutthaya-screenshot-001.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CVE-2020-1380漏洞利用及EXP构造</div></div></a></div><div class="next-post pull-right"><a href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/"><img class="next-cover" src="https://overwatch.nosdn.127.net/a/images/2021/1/13/70dadcf36262b15cb803223ed56ad252.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Emotet病毒分析</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/self_icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Richardo.M</div><div class="author-info__description">心有猛虎，细嗅蔷薇</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/richard447"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">We1C0me_t0_Richard0's W0rld</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E4%B8%AD%E4%B8%80%E4%BA%9B%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84%E7%9A%84%E7%A0%94%E7%A9%B6"><span class="toc-number">1.</span> <span class="toc-text">JS中一些对象结构的研究</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Array%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.</span> <span class="toc-text">Array对象</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%B1%82"><span class="toc-number">1.1.0.0.0.1.</span> <span class="toc-text">代码层</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82"><span class="toc-number">1.1.0.0.0.2.</span> <span class="toc-text">系统底层</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayBuffer%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.</span> <span class="toc-text">ArrayBuffer对象</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%B1%82-1"><span class="toc-number">1.2.0.0.0.1.</span> <span class="toc-text">代码层</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82-1"><span class="toc-number">1.2.0.0.0.2.</span> <span class="toc-text">系统底层</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TypedArray"><span class="toc-number">1.3.</span> <span class="toc-text">TypedArray</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LargeHeapBlock%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.4.</span> <span class="toc-text">LargeHeapBlock对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NativeArray%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.</span> <span class="toc-text">NativeArray结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataView%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.</span> <span class="toc-text">DataView结构</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/" title="CVE-2020-1380漏洞利用及EXP构造"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/ayutthaya-screenshot-001.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CVE-2020-1380漏洞利用及EXP构造"/></a><div class="content"><a class="title" href="/2020/12/27/CVE-2020-1380%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%8F%8AEXP%E6%9E%84%E9%80%A0/" title="CVE-2020-1380漏洞利用及EXP构造">CVE-2020-1380漏洞利用及EXP构造</a><time datetime="2020-12-26T16:00:00.000Z" title="发表于 2020-12-27 00:00:00">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/" title="IEJscript9中的一些数据对象研究"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/rialto-screenshot-004.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IEJscript9中的一些数据对象研究"/></a><div class="content"><a class="title" href="/2020/12/25/IE%E4%B8%ADJscript9%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E6%9E%84%E7%A0%94%E7%A9%B6/" title="IEJscript9中的一些数据对象研究">IEJscript9中的一些数据对象研究</a><time datetime="2020-12-24T16:00:00.000Z" title="发表于 2020-12-25 00:00:00">2020-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" title="Emotet病毒分析"><img src="https://overwatch.nosdn.127.net/a/images/2021/1/13/70dadcf36262b15cb803223ed56ad252.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Emotet病毒分析"/></a><div class="content"><a class="title" href="/2020/10/29/Emotet%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" title="Emotet病毒分析">Emotet病毒分析</a><time datetime="2020-10-28T16:00:00.000Z" title="发表于 2020-10-29 00:00:00">2020-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/07/20/%E4%B8%80%E4%B8%AA%E5%A4%9A%E5%B1%82%E5%8A%A0%E5%AF%86%E6%B7%B7%E6%B7%86%E7%9A%84powershell%E6%9C%A8%E9%A9%AC&amp;%E5%8B%92%E7%B4%A2%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/" title="Powershell勒索病毒"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/brigitte-screenshot-01_n2d31.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Powershell勒索病毒"/></a><div class="content"><a class="title" href="/2020/07/20/%E4%B8%80%E4%B8%AA%E5%A4%9A%E5%B1%82%E5%8A%A0%E5%AF%86%E6%B7%B7%E6%B7%86%E7%9A%84powershell%E6%9C%A8%E9%A9%AC&amp;%E5%8B%92%E7%B4%A2%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/" title="Powershell勒索病毒">Powershell勒索病毒</a><time datetime="2020-07-19T16:00:00.000Z" title="发表于 2020-07-20 00:00:00">2020-07-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/03/20/DroidBox%E9%85%8D%E7%BD%AE/" title="DroidBox配置"><img src="https://overwatch.nosdn.127.net/2/media/screenshots/hanamura-screenshot-010.16TUs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DroidBox配置"/></a><div class="content"><a class="title" href="/2020/03/20/DroidBox%E9%85%8D%E7%BD%AE/" title="DroidBox配置">DroidBox配置</a><time datetime="2020-03-19T16:00:00.000Z" title="发表于 2020-03-20 00:00:00">2020-03-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Richardo.M</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
